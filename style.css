@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -15,12 +15,10 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
-  flex-wrap: wrap;
 }
 
 input {
   flex: 1;
-  min-width: 120px;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -41,7 +39,6 @@ li {
   gap: 8px;
   padding: 8px;
   border-bottom: 1px solid #eee;
-  flex-wrap: wrap;
 }
 
 /* Стиль для выполненной задачи */
@@ -50,25 +47,14 @@ li.completed .task-text {
   opacity: 0.6;
 }
 
-li.completed .task-category,
-li.completed .task-deadline {
+li.completed .task-category {
   opacity: 0.5;
 }
 
 .task-category {
   font-size: 0.85em;
   color: #555;
-}
-
-.task-deadline {
-  font-size: 0.85em;
-  color: #007acc;
-}
-
-/* Просроченный дедлайн */
-.task-deadline.overdue {
-  color: #c00;
-  font-weight: bold;
+  margin-left: 4px;
 }
 
 .delete-btn {

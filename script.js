@@ -1,12 +1,10 @@
 function addTask() {
   const taskInput = document.getElementById('taskInput');
   const categoryInput = document.getElementById('categoryInput');
-  const deadlineInput = document.getElementById('deadlineInput');
-
   const taskText = taskInput.value.trim();
   const category = categoryInput.value.trim() || 'Без категории';
-  const deadline = deadlineInput.value; // "YYYY-MM-DD" или ""
 
+  // Валидация
   if (taskText === '') {
     alert('Введите текст задачи!');
     return;
@@ -15,7 +13,7 @@ function addTask() {
   const taskList = document.getElementById('taskList');
   const li = document.createElement('li');
 
-  // Чекбокс "выполнено"
+  // Чекбокс для отметки выполнения
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.addEventListener('change', function () {
@@ -32,23 +30,6 @@ function addTask() {
   categorySpan.className = 'task-category';
   categorySpan.textContent = `[${category}]`;
 
-  // Дедлайн
-  const deadlineSpan = document.createElement('span');
-  deadlineSpan.className = 'task-deadline';
-  if (deadline) {
-    const date = new Date(deadline);
-    deadlineSpan.textContent = 'до ' + date.toLocaleDateString('ru-RU');
-
-    // Если дата уже прошла — подсвечиваем красным
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    if (date < today) {
-      deadlineSpan.classList.add('overdue');
-    }
-  } else {
-    deadlineSpan.textContent = 'без дедлайна';
-  }
-
   // Кнопка удаления
   const deleteBtn = document.createElement('button');
   deleteBtn.className = 'delete-btn';
@@ -60,14 +41,12 @@ function addTask() {
   li.appendChild(checkbox);
   li.appendChild(textSpan);
   li.appendChild(categorySpan);
-  li.appendChild(deadlineSpan);
   li.appendChild(deleteBtn);
 
   taskList.appendChild(li);
 
-  // Очистка полей
+  // Очищаем поля и возвращаем фокус
   taskInput.value = '';
   categoryInput.value = '';
-  deadlineInput.value = '';
   taskInput.focus();
 }
