@@ -1,37 +1,67 @@
 body {
-font-family: Arial, sans-serif;
-max-width: 600px;
-margin: 0 auto;
-padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
 }
+
 .container {
-background: #f9f9f9;
-padding: 20px;
-border-radius: 8px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
 }
+
 .input-section {
-display: flex;
-gap: 10px;
-margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
 }
+
 input {
-flex: 1;
-padding: 8px;
-border: 1px solid #ddd;
-border-radius: 4px;
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
+
 button {
-padding: 8px 16px;
-background: #007acc;
-color: white;
-border: none;
-border-radius: 4px;
-cursor: pointer;
+  padding: 8px 16px;
+  background: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
 li {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 8px;
-border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Стиль для выполненной задачи */
+li.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+li.completed .task-category {
+  opacity: 0.5;
+}
+
+.task-category {
+  font-size: 0.85em;
+  color: #555;
+  margin-left: 4px;
+}
+
+.delete-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #c00;
+  cursor: pointer;
+  font-size: 0.9em;
 }
