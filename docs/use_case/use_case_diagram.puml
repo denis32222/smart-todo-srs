@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+actor Пользователь as User
+rectangle "Домашний менеджер задач" {
+  usecase "Добавление нового дела" as AddTask
+  usecase "Пометка дела как выполненного" as CompleteTask
+  usecase "Редактирование дела" as EditTask
+  usecase "Удаление дела" as DeleteTask
+  usecase "Просмотр списка дел" as ViewTasks
+  usecase "Фильтрация дел по категориям" as FilterTasks
+  usecase "Автосохранение изменений" as AutoSave
+  usecase "установка приоритета" as SetPriority
+  usecase "Сортировка дел" as SortTasks
+  usecase "присвоение категории" as SetCategory
+
+
+  ' Include relationships
+  EditTask ..> AutoSave : include
+  AddTask  ..> SetPriority: include
+  AddTask  ..> SetCategory: include
+
+  ' Extend relationships
+  ViewTasks <.. FilterTasks : extend
+  ViewTasks <.. SortTasks : extend
+  EditTask <.. CompleteTask: extend
+}
+
+' Actor associations
+User -- AddTask
+User -- EditTask
+User -- DeleteTask
+User -- ViewTasks
+@enduml
